@@ -7,11 +7,13 @@ import Footer from "./components/Footer";
 import AIComp from "./components/AIComp";
 import RecommendFilms from "./components/RecommendFilms";
 import MovieSelector from "./components/MovieSelector.jsx";
+import FetchMovies from "./components/FetchMovies.jsx";
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [recommQuery, setRecommQuery] = useState([]);
-  const [selectedTitle, setSelectedTitle] = useState("");
+  const [selectedTitleID, setSelectedTitleID] = useState("");
+  const [movies, setMovies] = useState([]);
 
   const handleSearch = (query) => {
     setSearchQuery(query);
@@ -21,20 +23,21 @@ function App() {
   };
 
   // Function to handle movie selection
-  const handleSelectMovie = (title) => {
-    setSelectedTitle(title);
+  const handleSelectMovie = (titleID) => {
+    setSelectedTitleID(titleID);
   };
 
   return (
     <div className="pt-32">
+      <FetchMovies setMovies={setMovies} />
       <NavBar onSearch={handleSearch} />
 
-      <MovieSelector onSelectMovie={handleSelectMovie} />
-      <AIComp onRecomm={handleRecomm} selectedTitle={selectedTitle} />
+      <FilmDiv searchQuery={searchQuery} />
+
+      <MovieSelector onSelectMovie={handleSelectMovie} moviesArr={movies} />
+      <AIComp onRecomm={handleRecomm} selectedTitleID={selectedTitleID} />
       <RecommendFilms recommArr={recommQuery} />
       <HeroBackground />
-
-      <FilmDiv searchQuery={searchQuery} />
       <HeroFront />
       <Footer />
     </div>

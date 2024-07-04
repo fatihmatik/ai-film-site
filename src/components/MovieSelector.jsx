@@ -1,22 +1,12 @@
-// MovieSelector.js
 import React, { useState } from "react";
-import { filmData } from "../assets/data/filmData"; // Import your filmData array
 
-const MovieSelector = ({ onSelectMovie }) => {
+const MovieSelector = ({ onSelectMovie, moviesArr }) => {
   const [selectedFilmId, setSelectedFilmId] = useState(null);
 
-  // Handle film selection
   const handleChange = (event) => {
     const id = parseInt(event.target.value, 10);
     setSelectedFilmId(id);
-
-    // Find the selected film
-    const selectedFilm = filmData.find((film) => film.id === id);
-
-    // Pass the selected film's title to the parent component
-    if (selectedFilm) {
-      onSelectMovie(selectedFilm.title);
-    }
+    onSelectMovie(id); // Use the new id directly
   };
 
   return (
@@ -25,7 +15,7 @@ const MovieSelector = ({ onSelectMovie }) => {
         htmlFor="filmSelect"
         className="block text-lg font-semibold mb-2 text-center"
       >
-        Select a Movie
+        Select a Movie to Recommend From
       </label>
       <select
         id="filmSelect"
@@ -36,9 +26,9 @@ const MovieSelector = ({ onSelectMovie }) => {
         <option value="" disabled>
           Select a movie
         </option>
-        {filmData.map((film) => (
-          <option key={film.id} value={film.id}>
-            {film.title}
+        {moviesArr.slice(0, 50).map((movie) => (
+          <option key={movie.id} value={movie.id}>
+            {movie.title}
           </option>
         ))}
       </select>
