@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import { filmData } from "../assets/data/filmData";
+import filmData from "../assets/data/processed_movies.json";
 
 const FilmDiv = ({ searchQuery }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-
   const filteredFilms = filmData.filter(
-    (film) =>
-      film.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      film.releaseYear.toString().includes(searchQuery) ||
-      film.director.toLowerCase().includes(searchQuery.toLowerCase())
+    (film) => film.title.toLowerCase().includes(searchQuery.toLowerCase())
+    // ||
+    // film.releaseYear.toString().includes(searchQuery) ||
+    // film.director.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  console.log(filteredFilms);
   const handleNext = () => {
     if (currentIndex < filteredFilms.length - 3) {
       setCurrentIndex((prevIndex) => prevIndex + 1);
@@ -37,7 +37,7 @@ const FilmDiv = ({ searchQuery }) => {
           className="flex transition-transform duration-300"
           style={{ transform: `translateX(-${currentIndex * (100 / 3)}%)` }}
         >
-          {filteredFilms.map((film) => (
+          {filteredFilms.slice(0, 15).map((film) => (
             <div className="flex-shrink-0 w-1/3 px-8" key={film.id}>
               <FilmCard
                 title={film.title}
@@ -45,7 +45,7 @@ const FilmDiv = ({ searchQuery }) => {
                 releaseYear={film.releaseYear}
                 director={film.director}
                 description={film.description}
-                image={film.image}
+                photoURL={film.photoURL}
               />
             </div>
           ))}
@@ -73,13 +73,13 @@ const FilmCard = ({
   releaseYear,
   director,
   description,
-  image,
+  photoURL,
 }) => {
   return (
     <div className="bg-zinc-950 rounded-lg shadow-md p-4 mb-4">
       <div className="relative w-full pb-[177%] mb-4">
         <img
-          src={image}
+          src={photoURL}
           alt={title}
           className="absolute top-0 left-0 w-full h-full object-cover rounded-t-lg"
         />

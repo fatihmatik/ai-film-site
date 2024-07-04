@@ -1,4 +1,3 @@
-// App.jsx
 import React, { useState } from "react";
 import FilmDiv from "./components/FilmDiv";
 import HeroBackground from "./components/HeroBackground";
@@ -30,7 +29,6 @@ function App() {
     setSelectedTitleID(titleID);
   };
 
-  // Handle page change
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };

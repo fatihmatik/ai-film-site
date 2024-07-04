@@ -4,9 +4,7 @@ const FetchMovies = ({ setMovies }) => {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const response = await fetch(
-          "http://localhost:3000/ai-film-site/processed_movies.json"
-        ); // Adjust the path if necessary
+        const response = await fetch("/ai-film-site/processed_movies.json"); // Adjust the path if necessary
         const data = await response.json();
         setMovies(data);
       } catch (error) {

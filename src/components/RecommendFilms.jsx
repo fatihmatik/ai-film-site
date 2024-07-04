@@ -5,7 +5,6 @@ const FilmDiv = ({ recommArr }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   let filteredFilms = undefined;
-  console.log(recommArr);
 
   if (Array.isArray(recommArr)) {
     filteredFilms = filmData.filter((item) =>
@@ -32,7 +31,6 @@ const FilmDiv = ({ recommArr }) => {
   if (!recommArr) {
     return null;
   }
-  console.log(filteredFilms);
   return (
     <div className="relative max-w-7xl mx-auto p-6">
       <h1 className="text-2xl text-white font-bold ml-8 mb-2 bg-black rounded-md w-fit p-2">
@@ -51,7 +49,7 @@ const FilmDiv = ({ recommArr }) => {
                 releaseYear={film.releaseYear}
                 director={film.director}
                 description={film.description}
-                image={film.image}
+                photoURL={film.photoURL}
               />
             </div>
           ))}
@@ -79,17 +77,17 @@ const FilmCard = ({
   releaseYear,
   director,
   description,
-  image,
+  photoURL,
 }) => {
   return (
     <div className="bg-zinc-950 rounded-lg shadow-md p-4 mb-4">
-      {/* <div className="relative w-full pb-[177%] mb-4">
+      <div className="relative w-full pb-[177%] mb-4">
         <img
-          src={image}
-          alt={title}
+          src={photoURL}
+          alt={photoURL}
           className="absolute top-0 left-0 w-full h-full object-cover rounded-t-lg"
         />
-      </div> */}
+      </div>
       <h2 className="text-xl font-bold mb-2">{title}</h2>
       <p className="text-white mb-1">
         <strong>Genre:</strong> {genre}
