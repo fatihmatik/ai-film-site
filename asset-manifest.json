@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/ai-film-site/static/css/main.ac6c1388.css",
+    "main.js": "/ai-film-site/static/js/main.16f74a65.js",
+    "static/js/862.33036593.chunk.js": "/ai-film-site/static/js/862.33036593.chunk.js",
+    "static/js/677.38808ad6.chunk.js": "/ai-film-site/static/js/677.38808ad6.chunk.js",
+    "static/js/720.af65875d.chunk.js": "/ai-film-site/static/js/720.af65875d.chunk.js",
+    "static/js/426.5e64f77b.chunk.js": "/ai-film-site/static/js/426.5e64f77b.chunk.js",
+    "static/media/hero1-background.jpg": "/ai-film-site/static/media/hero1-background.655cd494cad4b5bbc0e1.jpg",
+    "index.html": "/ai-film-site/index.html",
+    "main.ac6c1388.css.map": "/ai-film-site/static/css/main.ac6c1388.css.map",
+    "main.16f74a65.js.map": "/ai-film-site/static/js/main.16f74a65.js.map",
+    "426.5e64f77b.chunk.js.map": "/ai-film-site/static/js/426.5e64f77b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ac6c1388.css",
+    "static/js/main.16f74a65.js"
+  ]
+}
