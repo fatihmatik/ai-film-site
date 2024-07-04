@@ -1,14 +1,11 @@
 import React from "react";
-import netflixLogo from "../assets/images/netflix_logo.png";
+import NavBarLogo from "./NavBarLogo";
 
 const HeroFront = () => {
   return (
     <div className="relative bg-black p-6 mx-auto max-w-md rounded-lg shadow-lg text-center">
       <header className="flex flex-col mb-4">
-        <div className="relative">
-          <img src={netflixLogo} alt="netflixlogo" className="h-full w-full" />
-          <div className="absolute inset-0 bg-black opacity-10 hover:opacity-0 transition-opacity duration-300"></div>
-        </div>
+        <NavBarLogo />
         <h1 className="text-white text-3xl font-bold">Top Recommendations</h1>
       </header>
       <nav className="flex flex-col gap-2 mb-4">
