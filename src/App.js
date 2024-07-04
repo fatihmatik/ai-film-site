@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import FilmDiv from "./components/FilmDiv";
+import HeroBackground from "./components/HeroBackground";
+import HeroFront from "./components/HeroFront";
+import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
+import MyComp from "./components/MyComp";
 
 function App() {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="pt-32">
+      <MyComp />
+      <NavBar onSearch={handleSearch} />
+      <HeroBackground />
+      <FilmDiv searchQuery={searchQuery} />
+      <HeroFront />
+      <Footer />
     </div>
   );
 }
