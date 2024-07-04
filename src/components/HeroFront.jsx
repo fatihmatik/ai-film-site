@@ -9,11 +9,11 @@ const HeroFront = () => {
           <img src={netflixLogo} alt="netflixlogo" className="h-full w-full" />
           <div className="absolute inset-0 bg-black opacity-10 hover:opacity-0 transition-opacity duration-300"></div>
         </div>
-        <h1 className="text-white text-3xl font-bold">Global Top 10</h1>
+        <h1 className="text-white text-3xl font-bold">Top Recommendations</h1>
       </header>
       <nav className="flex flex-col gap-2 mb-4">
         <a href="#a" className="text-white hover:text-gray-400">
-          Top 10 by Country
+          Top 10 by You!
         </a>
         <a href="#a" className="text-white hover:text-gray-400">
           Most Popular Lists

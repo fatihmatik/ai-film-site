@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import { filmData } from "../assets/data/filmData";
 
-const FilmDiv = ({ searchQuery }) => {
+const FilmDiv = ({ recommArr }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-
-  const filteredFilms = filmData.filter(
-    (film) =>
-      film.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      film.releaseYear.toString().includes(searchQuery) ||
-      film.director.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  let filteredFilms = "";
+  if (Array.isArray(recommArr)) {
+    filteredFilms = filmData.filter((item) =>
+      recommArr.some((filterItem) => {
+        return item.title.toLowerCase().includes(filterItem.toLowerCase());
+      })
+    );
+  } else if (typeof recommArr === "string") {
+    filteredFilms = filmData;
+  }
 
   const handleNext = () => {
     if (currentIndex < filteredFilms.length - 3) {
@@ -24,13 +27,16 @@ const FilmDiv = ({ searchQuery }) => {
   };
 
   if (filteredFilms.length === 0) {
-    return null;
+    filteredFilms = filmData;
+    if (filteredFilms.length === 0) {
+      return null;
+    }
   }
 
   return (
     <div className="relative max-w-7xl mx-auto p-6">
-      <h1 className="text-2xl text-white font-bold ml-8 mb-2">
-        Filtered films
+      <h1 className="text-2xl text-white font-bold ml-8 mb-2 bg-black rounded-md w-fit p-2">
+        Recommended films
       </h1>
       <div className="overflow-hidden">
         <div

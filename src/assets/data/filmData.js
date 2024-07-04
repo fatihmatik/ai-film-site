@@ -317,4 +317,15 @@ export const filmData = [
     image:
       "https://m.media-amazon.com/images/M/MV5BNGYyNmI3M2YtNzYzZS00OTViLTkxYjAtZDIyZmE1Y2U1ZmQ2XkEyXkFqcGdeQXVyMTA4NjE0NjEy._V1_.jpg",
   },
+  {
+    id: 30,
+    title: "The Matrix Revolutions",
+    genre: "Science Fiction",
+    releaseYear: 2003,
+    director: "Lana Wachowski, Lilly Wachowski",
+    description:
+      "The humans of Zion fight against the machines that have enslaved humanity, while Neo must make a final stand to save both worlds from destruction.",
+    image:
+      "https://m.media-amazon.com/images/M/MV5BNzNlZTZjMDctZjYwNi00NzljLWIwN2QtZWZmYmJiYzQ0MTk2XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg",
+  },
 ];
