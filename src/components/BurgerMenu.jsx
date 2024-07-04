@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 
-const BurgerMenu = () => {
-  const [isOpen, setIsOpen] = useState(false);
+const BurgerMenu = ({ onSetPage }) => {
+  const [isOpen, setIsOpen] = React.useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const handlePageChange = (page) => {
+    onSetPage(page);
+    setIsOpen(false);
   };
 
   return (
@@ -24,18 +29,24 @@ const BurgerMenu = () => {
       </button>
       {isOpen && (
         <div className="absolute right-0 mt-2 w-48 bg-black border rounded shadow-lg">
-          <a href="#a" className="block px-4 py-2 text-white hover:bg-gray-900">
+          <button
+            className="w-full px-4 py-2 text-white hover:bg-gray-900"
+            onClick={() => handlePageChange("home")}
+          >
             Home
-          </a>
-          <a href="#a" className="block px-4 py-2 text-white hover:bg-gray-900">
+          </button>
+          <button
+            className="w-full px-4 py-2 text-white hover:bg-gray-900"
+            onClick={() => handlePageChange("about")}
+          >
             About
-          </a>
-          <a href="#a" className="block px-4 py-2 text-white hover:bg-gray-900">
-            Services
-          </a>
-          <a href="#a" className="block px-4 py-2 text-white hover:bg-gray-900">
+          </button>
+          <button
+            className="w-full px-4 py-2 text-white hover:bg-gray-900"
+            onClick={() => handlePageChange("contact")}
+          >
             Contact
-          </a>
+          </button>
         </div>
       )}
     </div>

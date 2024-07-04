@@ -1,3 +1,4 @@
+// App.jsx
 import React, { useState } from "react";
 import FilmDiv from "./components/FilmDiv";
 import HeroBackground from "./components/HeroBackground";
@@ -8,38 +9,53 @@ import AIComp from "./components/AIComp";
 import RecommendFilms from "./components/RecommendFilms";
 import MovieSelector from "./components/MovieSelector.jsx";
 import FetchMovies from "./components/FetchMovies.jsx";
+import Contact from "./components/Contact.jsx";
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [recommQuery, setRecommQuery] = useState([]);
   const [selectedTitleID, setSelectedTitleID] = useState("");
   const [movies, setMovies] = useState([]);
+  const [currentPage, setCurrentPage] = useState("home");
 
   const handleSearch = (query) => {
     setSearchQuery(query);
   };
+
   const handleRecomm = (query) => {
     setRecommQuery(query);
   };
 
-  // Function to handle movie selection
   const handleSelectMovie = (titleID) => {
     setSelectedTitleID(titleID);
+  };
+
+  // Handle page change
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
   };
 
   return (
     <div className="pt-32">
       <FetchMovies setMovies={setMovies} />
-      <NavBar onSearch={handleSearch} />
+      <NavBar onSearch={handleSearch} onSetPage={handlePageChange} />
 
-      <FilmDiv searchQuery={searchQuery} />
+      {currentPage === "home" && (
+        <>
+          <FilmDiv searchQuery={searchQuery} />
+          <MovieSelector onSelectMovie={handleSelectMovie} moviesArr={movies} />
+          <AIComp onRecomm={handleRecomm} selectedTitleID={selectedTitleID} />
+          <RecommendFilms recommArr={recommQuery} />
+          <HeroBackground />
+          <HeroFront />
+          <div className="w-1/2 h-[2px] bg-red-600 mx-auto mt-4"></div>
+          <Footer />
+        </>
+      )}
 
-      <MovieSelector onSelectMovie={handleSelectMovie} moviesArr={movies} />
-      <AIComp onRecomm={handleRecomm} selectedTitleID={selectedTitleID} />
-      <RecommendFilms recommArr={recommQuery} />
-      <HeroBackground />
-      <HeroFront />
-      <Footer />
+      {currentPage === "about" && <Footer />}
+
+      {currentPage === "contact" && <Contact />}
     </div>
   );
 }
