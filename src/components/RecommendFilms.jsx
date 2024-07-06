@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import filmData from "../assets/data/processed_movies.json";
 
-const FilmDiv = ({ recommArr }) => {
+const RecommendFilms = ({ recommArr }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  let filteredFilms = undefined;
+  let filteredFilms = [];
 
   if (Array.isArray(recommArr)) {
     filteredFilms = filmData.filter((item) =>
-      recommArr.some((filterItem) => {
-        return item.title.toLowerCase().includes(filterItem.toLowerCase());
-      })
+      recommArr.some((filterItem) =>
+        item.title.toLowerCase().includes(filterItem.toLowerCase())
+      )
     );
   } else if (typeof recommArr === "string") {
     filteredFilms = filmData;
@@ -18,22 +18,23 @@ const FilmDiv = ({ recommArr }) => {
 
   const handleNext = () => {
     if (currentIndex < filteredFilms.length - 3) {
-      setCurrentIndex((prevIndex) => prevIndex + 1);
+      setCurrentIndex((prevIndex) => prevIndex + 3);
     }
   };
 
   const handlePrev = () => {
     if (currentIndex > 0) {
-      setCurrentIndex((prevIndex) => prevIndex - 1);
+      setCurrentIndex((prevIndex) => prevIndex - 3);
     }
   };
 
-  if (!recommArr) {
+  if (!recommArr || filteredFilms.length === 0) {
     return null;
   }
+
   return (
-    <div className="relative max-w-7xl mx-auto p-6">
-      <h1 className="text-2xl text-white font-bold ml-8 mb-2 bg-black rounded-md w-fit p-2">
+    <div className="relative max-w-7xl mx-auto p-4 md:p-6">
+      <h1 className="text-xl md:text-2xl text-white font-bold ml-4 md:ml-8 mb-2 bg-black rounded-md w-fit p-2">
         Recommended films
       </h1>
       <div className="overflow-hidden">
@@ -42,7 +43,10 @@ const FilmDiv = ({ recommArr }) => {
           style={{ transform: `translateX(-${currentIndex * (100 / 3)}%)` }}
         >
           {filteredFilms.map((film) => (
-            <div className="flex-shrink-0 w-1/3 px-8" key={film.id}>
+            <div
+              className="flex-shrink-0 w-full sm:w-1/2 md:w-1/3 px-2 md:px-4"
+              key={film.id}
+            >
               <FilmCard
                 title={film.title}
                 genre={film.genre}
@@ -84,11 +88,11 @@ const FilmCard = ({
       <div className="relative w-full pb-[177%] mb-4">
         <img
           src={photoURL}
-          alt={photoURL}
+          alt={title}
           className="absolute top-0 left-0 w-full h-full object-cover rounded-t-lg"
         />
       </div>
-      <h2 className="text-xl font-bold mb-2">{title}</h2>
+      <h2 className="text-lg md:text-xl font-bold mb-2">{title}</h2>
       <p className="text-white mb-1">
         <strong>Genre:</strong> {genre}
       </p>
@@ -105,4 +109,4 @@ const FilmCard = ({
   );
 };
 
-export default FilmDiv;
+export default RecommendFilms;

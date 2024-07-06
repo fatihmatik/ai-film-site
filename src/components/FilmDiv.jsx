@@ -3,23 +3,19 @@ import filmData from "../assets/data/processed_movies.json";
 
 const FilmDiv = ({ searchQuery }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const filteredFilms = filmData.filter(
-    (film) => film.title.toLowerCase().includes(searchQuery.toLowerCase())
-    // ||
-    // film.releaseYear.toString().includes(searchQuery) ||
-    // film.director.toLowerCase().includes(searchQuery.toLowerCase())
+  const filteredFilms = filmData.filter((film) =>
+    film.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  console.log(filteredFilms);
   const handleNext = () => {
     if (currentIndex < filteredFilms.length - 3) {
-      setCurrentIndex((prevIndex) => prevIndex + 1);
+      setCurrentIndex((prevIndex) => prevIndex + 3);
     }
   };
 
   const handlePrev = () => {
     if (currentIndex > 0) {
-      setCurrentIndex((prevIndex) => prevIndex - 1);
+      setCurrentIndex((prevIndex) => prevIndex - 3);
     }
   };
 
@@ -28,17 +24,17 @@ const FilmDiv = ({ searchQuery }) => {
   }
 
   return (
-    <div className="relative max-w-7xl mx-auto p-6">
-      <h1 className="text-2xl text-white font-bold ml-8 mb-2">
-        Filtered films
-      </h1>
+    <div className="relative max-w-7xl mx-auto p-4 md:p-6">
       <div className="overflow-hidden">
         <div
           className="flex transition-transform duration-300"
           style={{ transform: `translateX(-${currentIndex * (100 / 3)}%)` }}
         >
           {filteredFilms.slice(0, 15).map((film) => (
-            <div className="flex-shrink-0 w-1/3 px-8" key={film.id}>
+            <div
+              className="flex-shrink-0 w-full sm:w-1/2 md:w-1/3 px-2 md:px-4"
+              key={film.id}
+            >
               <FilmCard
                 title={film.title}
                 genre={film.genre}
@@ -84,7 +80,7 @@ const FilmCard = ({
           className="absolute top-0 left-0 w-full h-full object-cover rounded-t-lg"
         />
       </div>
-      <h2 className="text-xl font-bold mb-2">{title}</h2>
+      <h2 className="text-lg md:text-xl font-bold mb-2">{title}</h2>
       <p className="text-white mb-1">
         <strong>Genre:</strong> {genre}
       </p>

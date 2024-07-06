@@ -44,6 +44,7 @@ function App() {
           <MovieSelector onSelectMovie={handleSelectMovie} moviesArr={movies} />
           <AIComp onRecomm={handleRecomm} selectedTitleID={selectedTitleID} />
           <RecommendFilms recommArr={recommQuery} />
+
           <HeroBackground />
           <HeroFront />
           <div className="w-1/2 h-[2px] bg-red-600 mx-auto mt-4"></div>
