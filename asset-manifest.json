@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/ai-film-site/static/css/main.87e62956.css",
-    "main.js": "/ai-film-site/static/js/main.59de88ca.js",
+    "main.css": "/ai-film-site/static/css/main.3f075589.css",
+    "main.js": "/ai-film-site/static/js/main.d175742d.js",
     "static/js/862.33036593.chunk.js": "/ai-film-site/static/js/862.33036593.chunk.js",
     "static/js/677.38808ad6.chunk.js": "/ai-film-site/static/js/677.38808ad6.chunk.js",
     "static/js/720.af65875d.chunk.js": "/ai-film-site/static/js/720.af65875d.chunk.js",
@@ -9,17 +9,16 @@
     "static/media/hero1-background.jpg": "/ai-film-site/static/media/hero1-background.655cd494cad4b5bbc0e1.jpg",
     "static/media/hf.svg": "/ai-film-site/static/media/hf.8bcf2fb06963c8b86261887b500daccd.svg",
     "static/media/bannerlogo.png": "/ai-film-site/static/media/bannerlogo.ac1dcd1018f9b79f39f3.png",
-    "static/media/nodejs.svg": "/ai-film-site/static/media/nodejs.eb2c8043d36b2ab98bb122c3b595892f.svg",
     "static/media/react.svg": "/ai-film-site/static/media/react.e68b35f4774979ae220b1d5d7b345b00.svg",
     "static/media/gradio.svg": "/ai-film-site/static/media/gradio.a7c4a509671b876df2d9b92835fd077c.svg",
     "static/media/tailwind.svg": "/ai-film-site/static/media/tailwind.79614a5f61617ba49a0891494521226b.svg",
     "index.html": "/ai-film-site/index.html",
-    "main.87e62956.css.map": "/ai-film-site/static/css/main.87e62956.css.map",
-    "main.59de88ca.js.map": "/ai-film-site/static/js/main.59de88ca.js.map",
+    "main.3f075589.css.map": "/ai-film-site/static/css/main.3f075589.css.map",
+    "main.d175742d.js.map": "/ai-film-site/static/js/main.d175742d.js.map",
     "426.5e64f77b.chunk.js.map": "/ai-film-site/static/js/426.5e64f77b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.87e62956.css",
-    "static/js/main.59de88ca.js"
+    "static/css/main.3f075589.css",
+    "static/js/main.d175742d.js"
   ]
 }
