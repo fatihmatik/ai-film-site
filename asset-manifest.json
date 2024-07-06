@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/ai-film-site/static/css/main.8c3f42a1.css",
-    "main.js": "/ai-film-site/static/js/main.e391c310.js",
+    "main.css": "/ai-film-site/static/css/main.d64c8e94.css",
+    "main.js": "/ai-film-site/static/js/main.2fc7565e.js",
     "static/js/862.33036593.chunk.js": "/ai-film-site/static/js/862.33036593.chunk.js",
     "static/js/677.38808ad6.chunk.js": "/ai-film-site/static/js/677.38808ad6.chunk.js",
     "static/js/720.af65875d.chunk.js": "/ai-film-site/static/js/720.af65875d.chunk.js",
@@ -13,12 +13,12 @@
     "static/media/gradio.svg": "/ai-film-site/static/media/gradio.a7c4a509671b876df2d9b92835fd077c.svg",
     "static/media/tailwind.svg": "/ai-film-site/static/media/tailwind.79614a5f61617ba49a0891494521226b.svg",
     "index.html": "/ai-film-site/index.html",
-    "main.8c3f42a1.css.map": "/ai-film-site/static/css/main.8c3f42a1.css.map",
-    "main.e391c310.js.map": "/ai-film-site/static/js/main.e391c310.js.map",
+    "main.d64c8e94.css.map": "/ai-film-site/static/css/main.d64c8e94.css.map",
+    "main.2fc7565e.js.map": "/ai-film-site/static/js/main.2fc7565e.js.map",
     "426.5e64f77b.chunk.js.map": "/ai-film-site/static/js/426.5e64f77b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8c3f42a1.css",
-    "static/js/main.e391c310.js"
+    "static/css/main.d64c8e94.css",
+    "static/js/main.2fc7565e.js"
   ]
 }
