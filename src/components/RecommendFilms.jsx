@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import filmData from "../assets/data/processed_movies.json";
+import FilmCard from "./FilmCard";
+import Modal from "./Modal";
 
 const RecommendFilms = ({ recommArr }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [showModal, setShowModal] = useState(false);
+  const [selectedFilm, setSelectedFilm] = useState(null);
 
   let filteredFilms = [];
 
@@ -26,6 +30,11 @@ const RecommendFilms = ({ recommArr }) => {
     if (currentIndex > 0) {
       setCurrentIndex((prevIndex) => prevIndex - 3);
     }
+  };
+
+  const handleOpenModal = (film) => {
+    setSelectedFilm(film);
+    setShowModal(true);
   };
 
   if (!recommArr || filteredFilms.length === 0) {
@@ -54,6 +63,7 @@ const RecommendFilms = ({ recommArr }) => {
                 director={film.director}
                 description={film.description}
                 photoURL={film.photoURL}
+                onOpen={() => handleOpenModal(film)}
               />
             </div>
           ))}
@@ -71,40 +81,9 @@ const RecommendFilms = ({ recommArr }) => {
       >
         ›
       </button>
-    </div>
-  );
-};
-
-const FilmCard = ({
-  title,
-  genre,
-  releaseYear,
-  director,
-  description,
-  photoURL,
-}) => {
-  return (
-    <div className="bg-zinc-950 rounded-lg shadow-md p-4 mb-4">
-      <div className="relative w-full pb-[177%] mb-4">
-        <img
-          src={photoURL}
-          alt={title}
-          className="absolute top-0 left-0 w-full h-full object-cover rounded-t-lg"
-        />
-      </div>
-      <h2 className="text-lg md:text-xl font-bold mb-2">{title}</h2>
-      <p className="text-white mb-1">
-        <strong>Genre:</strong> {genre}
-      </p>
-      <p className="text-white mb-1">
-        <strong>Release Year:</strong> {releaseYear}
-      </p>
-      <p className="text-white mb-1">
-        <strong>Director:</strong> {director}
-      </p>
-      <p className="text-gray-100 mt-2 overflow-hidden text-ellipsis whitespace-nowrap">
-        {description}
-      </p>
+      {showModal && selectedFilm && (
+        <Modal movie={selectedFilm} onClose={() => setShowModal(false)} />
+      )}
     </div>
   );
 };
