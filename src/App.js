@@ -9,6 +9,7 @@ import RecommendFilms from "./components/RecommendFilms";
 import MovieSelector from "./components/MovieSelector.jsx";
 import FetchMovies from "./components/FetchMovies.jsx";
 import Contact from "./components/Contact.jsx";
+import ChatBot from "./components/ChatBot";
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -16,6 +17,7 @@ function App() {
   const [selectedTitleID, setSelectedTitleID] = useState("");
   const [movies, setMovies] = useState([]);
   const [currentPage, setCurrentPage] = useState("home");
+  const [chatBotVisible, setChatBotVisible] = useState(false);
 
   const handleSearch = (query) => {
     setSearchQuery(query);
@@ -40,6 +42,10 @@ function App() {
 
       {currentPage === "home" && (
         <>
+          <ChatBot
+            isOpen={chatBotVisible}
+            onClose={() => setChatBotVisible(false)}
+          />
           <FilmDiv searchQuery={searchQuery} />
           <MovieSelector onSelectMovie={handleSelectMovie} moviesArr={movies} />
           <AIComp onRecomm={handleRecomm} selectedTitleID={selectedTitleID} />
@@ -49,6 +55,12 @@ function App() {
           <HeroFront />
           <div className="w-1/2 h-[2px] bg-red-600 mx-auto mt-4"></div>
           <Footer />
+          <button
+            onClick={() => setChatBotVisible(!chatBotVisible)}
+            className="fixed bottom-4 right-4 bg-green-600 p-4 rounded-full shadow-lg hover:bg-green-700 font-semibold hover:-translate-y-2 hover:scale-110 transition ease-in-out 300ms"
+          >
+            {chatBotVisible ? "Close Chat" : "Open ChatBot"}
+          </button>
         </>
       )}
 

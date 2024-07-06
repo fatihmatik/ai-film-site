@@ -20,20 +20,20 @@ const Modal = ({ movie, onClose }) => {
       onClick={handleClose}
     >
       <div
-        className={`bg-black rounded-md shadow-lg overflow-hidden w-11/12 max-w-3xl transform transition-transform duration-300 ${
+        className={`bg-black rounded-md shadow-lg overflow-hidden w-full max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-3xl transform transition-transform duration-300 ${
           isVisible ? "scale-100" : "scale-95"
         }`}
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="grid grid-cols-1 md:grid-cols-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 h-screen md:h-auto">
           <div className="md:col-span-1">
             <img
               src={movie.photoURL}
               alt={movie.title}
-              className="w-full h-full object-cover"
+              className="h-full w-full object-cover"
             />
           </div>
-          <div className="p-6 md:p-8 md:col-span-1">
+          <div className="p-6 md:p-8 md:col-span-1 overflow-y-auto max-h-[calc(100vh-4rem)]">
             <button
               onClick={handleClose}
               className="text-red-600 hover:text-red-700 float-right text-xl font-bold mb-4"
