@@ -52,9 +52,7 @@ const Modal = ({ movie, onClose }) => {
             <p className="text-white mb-1">
               <strong>Director:</strong> {movie.director}
             </p>
-            <p className="text-gray-100 mt-2">
-              <strong>Description:</strong> {movie.description}
-            </p>
+            <p className="text-gray-200 mt-2">{movie.description}</p>
           </div>
         </div>
       </div>

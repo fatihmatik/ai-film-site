@@ -14,11 +14,11 @@ const Contact = () => {
         </a>
       </p>
       <div className="w-full h-[2px] bg-red-600 mx-auto my-4"></div>
-      <p>
-        Also you can view my: {""}
+      <p className="flex">
+        <span>Also you can view my:</span>
         <a
           href="https://fatihmatik.github.io/portfoglio-react/"
-          className="text-red-600 font-bold"
+          className="text-red-600 font-bold pl-1 hover:-translate-y-1 transition ease-in-out 300ms"
         >
           Portfolio Site
         </a>

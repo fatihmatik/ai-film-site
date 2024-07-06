@@ -54,7 +54,7 @@ function AIComp({ onRecomm, selectedTitleID }) {
   }, [recommendations, onRecomm]);
 
   return (
-    <div className="p-4 max-w-md mx-auto bg-black rounded-xl shadow-md space-y-4 text-white mt-2">
+    <div className="p-4 max-w-xl mx-auto bg-black rounded-xl shadow-md space-y-4 text-white mt-2">
       <p className="text-lg">
         Recommendations for:{" "}
         <span className="font-semibold text-red-500">{selectedTitle}</span>
